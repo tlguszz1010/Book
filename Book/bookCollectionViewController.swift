@@ -47,10 +47,10 @@ class bookCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "bookCollectionViewCell", for: indexPath) as! bookCollectionViewCell
         let data = bookList.book[indexPath.row]
         cell.configureCell(data: data)
-        print(data.title)
         cell.backgroundColor = colorArray.randomElement()
         cell.layer.cornerRadius = 10
-        
+    
+
         
         return cell
     }
