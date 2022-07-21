@@ -12,7 +12,7 @@ class bookCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var rateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var bookImageView: UIImageView!
-        
+    
     func configureCell(data: Book) {
         titleLabel.font = .boldSystemFont(ofSize: 15)
         titleLabel.text = data.title

@@ -27,12 +27,23 @@ class bookCollectionViewController: UICollectionViewController {
         layout.minimumInteritemSpacing = spacing
         collectionView.collectionViewLayout = layout
         
-       
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image:UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(SearchButtonClicked))
         
       
     }
 
-
+    
+    @objc func SearchButtonClicked() {
+        //self.dismiss(animated: true)
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+        
+        
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: true)
+//        self.navigationController?.pushViewController(vc, animated: true)
+    }
     // MARK: UICollectionViewDataSource
 
     // 1. 셀의 갯수
@@ -54,7 +65,13 @@ class bookCollectionViewController: UICollectionViewController {
         
         return cell
     }
-
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: DetailViewController.identifier) as! DetailViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+        print("Detail")
+    }
   
 
 }
